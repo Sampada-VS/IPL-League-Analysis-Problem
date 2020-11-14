@@ -60,4 +60,10 @@ public class IPLLeagueAnalyser {
 		return max4s.get4s() + "," + max4s.getName();
 	}
 
+	public String getCricketerWhoHasBestStrikingRate(String csvFilePath) {
+		loadMostRunsCSV(csvFilePath);
+		CSVMostRuns bestStrikeRate = csvRuns.stream().max(Comparator.comparing(CSVMostRuns::getStrikeRate)).get();
+		return bestStrikeRate.getStrikeRate() + "," + bestStrikeRate.get6s() + "," + bestStrikeRate.get4s();
+	}
+
 }

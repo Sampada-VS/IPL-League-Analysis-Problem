@@ -59,4 +59,11 @@ public class IPLLeagueAnalyserTest {
 		String max4sHit = iPLLeagueAnalyser.getCricketerWhoHitmax4s(IPL_MOST_RUNS_CSV_FILE_PATH);
 		assertEquals("64,Shikhar Dhawan", max4sHit);
 	}
+
+	@Test
+	public void givenIPLMostRunsCSVFile_WhenBestStrikingRate_ShouldReturnCricketerWithHis6sAnd4s() {
+		String bestStrikeRateCricketer = iPLLeagueAnalyser.getCricketerWhoHasBestStrikingRate(IPL_MOST_RUNS_CSV_FILE_PATH);
+		assertEquals("333.33,1,1", bestStrikeRateCricketer);
+	}
+
 }
