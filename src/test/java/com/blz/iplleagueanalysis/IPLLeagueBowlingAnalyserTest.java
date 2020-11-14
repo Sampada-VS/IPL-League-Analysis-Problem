@@ -42,11 +42,19 @@ public class IPLLeagueBowlingAnalyserTest {
 				.getTopStrikingRate(IPL_MOST_WICKETS_CSV_FILE_PATH);
 		assertEquals(120, topStrikingRateList.get(0).getStrikeRate(), 0.0);
 	}
-	
+
 	@Test
 	public void givenIPLMostWicketsCSVFile_WhenBestEconomy_ShouldReturnCorrectRecord() {
-		List<CSVMostWickets> bestEconomy = iPLLeagueBowlingAnalyser
-				.getTBestEconomy(IPL_MOST_WICKETS_CSV_FILE_PATH);
-		assertEquals(4.8, bestEconomy.get(0).getEconomy(), 0.0);
+		List<CSVMostWickets> bestEconomy = iPLLeagueBowlingAnalyser.getTBestEconomy(IPL_MOST_WICKETS_CSV_FILE_PATH);
+		assertEquals("4.8,Shivam Dube", bestEconomy.get(0).getEconomy() + "," + bestEconomy.get(0).getName());
+	}
+
+	@Test
+	public void givenIPLMostWicketsCSVFile_WhenTopStrikingRate_ShouldReturnCricketerWith5wAnd4w() {
+		List<CSVMostWickets> topStrikingRateList = iPLLeagueBowlingAnalyser
+				.getTopStrikingRate(IPL_MOST_WICKETS_CSV_FILE_PATH);
+		assertEquals("Krishnappa Gowtham,120.0,0,0",
+				topStrikingRateList.get(0).getName() + "," + topStrikingRateList.get(0).getStrikeRate() + ","
+						+ topStrikingRateList.get(0).get5w() + "," + topStrikingRateList.get(0).get4w());
 	}
 }

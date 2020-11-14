@@ -49,8 +49,20 @@ public class CSVMostWickets {
 	public double getStrikeRate() {
 		return strikeRate;
 	}
-	
+
 	public double getEconomy() {
 		return economy;
+	}
+
+	public int get5w() {
+		return fiveW;
+	}
+
+	public int get4w() {
+		return fourW;
+	}
+
+	public String getName() {
+		return player;
 	}
 }

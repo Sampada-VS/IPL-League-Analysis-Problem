@@ -44,8 +44,7 @@ public class IPLLeagueBowlingAnalyser {
 	public List<CSVMostWickets> getTBestEconomy(String csvFilePath) {
 		loadMostWicketsCSV(csvFilePath);
 		List<CSVMostWickets> bestEconomyList = csvWickets.stream()
-				.sorted(Comparator.comparingDouble(CSVMostWickets::getEconomy))
-				.collect(Collectors.toList());
+				.sorted(Comparator.comparingDouble(CSVMostWickets::getEconomy)).collect(Collectors.toList());
 		return bestEconomyList;
 	}
 }
