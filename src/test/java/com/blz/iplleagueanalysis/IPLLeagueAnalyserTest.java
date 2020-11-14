@@ -2,6 +2,8 @@ package com.blz.iplleagueanalysis;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -33,5 +35,9 @@ public class IPLLeagueAnalyserTest {
 		int numOfRecords = iPLLeagueAnalyser.loadMostWicketsCSV(IPL_MOST_WICKETS_CSV_FILE_PATH);
 		assertEquals(100, numOfRecords);
 	}
-
+	@Test
+	public void givenIPLMostRunsCSVFile_WhenTopBattingAverage_ShouldReturnCorrectRecord() {
+		double topBattingAverage=iPLLeagueAnalyser.getTopBattingAverage(IPL_MOST_RUNS_CSV_FILE_PATH);
+		assertEquals(83.2, topBattingAverage,0.0);
+	}
 }

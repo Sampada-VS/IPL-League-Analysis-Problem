@@ -42,4 +42,3 @@ public class CSVMostWickets {
 	@CsvBindByName(column="5w")
 	private int fiveW;
 }
-//POS	PLAYER	Mat	Inns	Ov	Runs	Wkts	BBI	Avg	Econ	SR	4w	5w

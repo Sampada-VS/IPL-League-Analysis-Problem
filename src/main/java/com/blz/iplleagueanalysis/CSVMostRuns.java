@@ -31,7 +31,7 @@ public class CSVMostRuns {
 	private int bf;
 	
 	@CsvBindByName(column="SR")
-	private float strikeRate;
+	private double strikeRate;
 	
 	@CsvBindByName(column="100")
 	private int totalcenturies;
@@ -44,5 +44,8 @@ public class CSVMostRuns {
 	
 	@CsvBindByName(column="6s")
 	private int total6s;
+	
+	public double getAverage() {
+		return average;
+	}
 }
-//POS,PLAYER,Mat,Inns,NO,Runs,HS,Avg,BF,SR,100,50,4s,6s
