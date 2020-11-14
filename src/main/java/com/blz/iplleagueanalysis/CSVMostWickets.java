@@ -65,4 +65,8 @@ public class CSVMostWickets {
 	public String getName() {
 		return player;
 	}
+
+	public int getWickets() {
+		return wickets;
+	}
 }

@@ -47,4 +47,11 @@ public class IPLLeagueBowlingAnalyser {
 				.sorted(Comparator.comparingDouble(CSVMostWickets::getEconomy)).collect(Collectors.toList());
 		return bestEconomyList;
 	}
+
+	public List<CSVMostWickets> getmaxWickets(String csvFilePath) {
+		loadMostWicketsCSV(csvFilePath);
+		List<CSVMostWickets> numOfWicketsReverseList = csvWickets.stream()
+				.sorted(Comparator.comparingDouble(CSVMostWickets::getWickets).reversed()).collect(Collectors.toList());
+		return numOfWicketsReverseList;
+	}
 }

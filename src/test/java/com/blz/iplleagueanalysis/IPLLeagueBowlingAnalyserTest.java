@@ -66,4 +66,10 @@ public class IPLLeagueBowlingAnalyserTest {
 				topBowlingAverageList.get(0).getName() + "," + topBowlingAverageList.get(0).getBowlingAverage() + ","
 						+ topBowlingAverageList.get(0).getStrikeRate());
 	}
+
+	@Test
+	public void givenIPLMostWicketsCSVFile_WhenMaxWickets_ShouldReturnCricketerWithBowlingAvg() {
+		List<CSVMostWickets> maxWicketsList = iPLLeagueBowlingAnalyser.getmaxWickets(IPL_MOST_WICKETS_CSV_FILE_PATH);
+		assertEquals("Imran Tahir,26", maxWicketsList.get(0).getName() + "," + maxWicketsList.get(0).getWickets());
+	}
 }
