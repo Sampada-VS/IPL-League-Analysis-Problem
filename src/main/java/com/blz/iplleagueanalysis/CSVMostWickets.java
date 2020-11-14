@@ -69,4 +69,8 @@ public class CSVMostWickets {
 	public int getWickets() {
 		return wickets;
 	}
+
+	public int getRuns() {
+		return runs;
+	}
 }

@@ -41,17 +41,24 @@ public class IPLLeagueBowlingAnalyser {
 		return strikingRateList;
 	}
 
-	public List<CSVMostWickets> getTBestEconomy(String csvFilePath) {
+	public List<CSVMostWickets> getBestEconomy(String csvFilePath) {
 		loadMostWicketsCSV(csvFilePath);
 		List<CSVMostWickets> bestEconomyList = csvWickets.stream()
 				.sorted(Comparator.comparingDouble(CSVMostWickets::getEconomy)).collect(Collectors.toList());
 		return bestEconomyList;
 	}
 
-	public List<CSVMostWickets> getmaxWickets(String csvFilePath) {
+	public List<CSVMostWickets> getMaxWickets(String csvFilePath) {
 		loadMostWicketsCSV(csvFilePath);
 		List<CSVMostWickets> numOfWicketsReverseList = csvWickets.stream()
 				.sorted(Comparator.comparingDouble(CSVMostWickets::getWickets).reversed()).collect(Collectors.toList());
 		return numOfWicketsReverseList;
+	}
+
+	public List<CSVMostWickets> getMaxRuns(String csvFilePath) {
+		loadMostWicketsCSV(csvFilePath);
+		List<CSVMostWickets> maximumRunsList = csvWickets.stream()
+				.sorted(Comparator.comparingDouble(CSVMostWickets::getRuns).reversed()).collect(Collectors.toList());
+		return maximumRunsList;
 	}
 }

@@ -45,7 +45,7 @@ public class IPLLeagueBowlingAnalyserTest {
 
 	@Test
 	public void givenIPLMostWicketsCSVFile_WhenBestEconomy_ShouldReturnCorrectRecord() {
-		List<CSVMostWickets> bestEconomy = iPLLeagueBowlingAnalyser.getTBestEconomy(IPL_MOST_WICKETS_CSV_FILE_PATH);
+		List<CSVMostWickets> bestEconomy = iPLLeagueBowlingAnalyser.getBestEconomy(IPL_MOST_WICKETS_CSV_FILE_PATH);
 		assertEquals("4.8,Shivam Dube", bestEconomy.get(0).getEconomy() + "," + bestEconomy.get(0).getName());
 	}
 
@@ -69,7 +69,7 @@ public class IPLLeagueBowlingAnalyserTest {
 
 	@Test
 	public void givenIPLMostWicketsCSVFile_WhenMaxWickets_ShouldReturnCricketerWithBowlingAvg() {
-		List<CSVMostWickets> maxWicketsList = iPLLeagueBowlingAnalyser.getmaxWickets(IPL_MOST_WICKETS_CSV_FILE_PATH);
+		List<CSVMostWickets> maxWicketsList = iPLLeagueBowlingAnalyser.getMaxWickets(IPL_MOST_WICKETS_CSV_FILE_PATH);
 		assertEquals("Imran Tahir,26", maxWicketsList.get(0).getName() + "," + maxWicketsList.get(0).getWickets());
 	}
 
@@ -79,5 +79,12 @@ public class IPLLeagueBowlingAnalyserTest {
 				.getTopStrikingRate(IPL_MOST_WICKETS_CSV_FILE_PATH);
 		assertEquals("Krishnappa Gowtham,120.0,166.0", topStrikingRateList.get(0).getName() + ","
 				+ topStrikingRateList.get(0).getStrikeRate() + "," + topStrikingRateList.get(0).getBowlingAverage());
+	}
+
+	@Test
+	public void givenIPLMostWicketsCSVFile_WhenMostRuns_ShouldReturnCricketerWithNumberOfWickets() {
+		List<CSVMostWickets> maxRunsList = iPLLeagueBowlingAnalyser.getMaxRuns(IPL_MOST_WICKETS_CSV_FILE_PATH);
+		assertEquals("Deepak Chahar,482,22", maxRunsList.get(0).getName() + "," + maxRunsList.get(0).getRuns() + ","
+				+ maxRunsList.get(0).getWickets());
 	}
 }
