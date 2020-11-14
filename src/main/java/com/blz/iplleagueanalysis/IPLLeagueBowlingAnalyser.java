@@ -32,4 +32,12 @@ public class IPLLeagueBowlingAnalyser {
 				.collect(Collectors.toList());
 		return bowlingAvgList;
 	}
+
+	public List<CSVMostWickets> getTopStrikingRate(String csvFilePath) {
+		loadMostWicketsCSV(csvFilePath);
+		List<CSVMostWickets> strikingRateList = csvWickets.stream()
+				.sorted(Comparator.comparingDouble(CSVMostWickets::getStrikeRate).reversed())
+				.collect(Collectors.toList());
+		return strikingRateList;
+	}
 }
