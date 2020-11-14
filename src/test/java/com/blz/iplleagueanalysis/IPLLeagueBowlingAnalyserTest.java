@@ -42,4 +42,11 @@ public class IPLLeagueBowlingAnalyserTest {
 				.getTopStrikingRate(IPL_MOST_WICKETS_CSV_FILE_PATH);
 		assertEquals(120, topStrikingRateList.get(0).getStrikeRate(), 0.0);
 	}
+	
+	@Test
+	public void givenIPLMostWicketsCSVFile_WhenBestEconomy_ShouldReturnCorrectRecord() {
+		List<CSVMostWickets> bestEconomy = iPLLeagueBowlingAnalyser
+				.getTBestEconomy(IPL_MOST_WICKETS_CSV_FILE_PATH);
+		assertEquals(4.8, bestEconomy.get(0).getEconomy(), 0.0);
+	}
 }

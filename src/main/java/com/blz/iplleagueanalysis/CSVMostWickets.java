@@ -49,4 +49,8 @@ public class CSVMostWickets {
 	public double getStrikeRate() {
 		return strikeRate;
 	}
+	
+	public double getEconomy() {
+		return economy;
+	}
 }
