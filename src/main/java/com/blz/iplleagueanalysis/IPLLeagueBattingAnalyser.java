@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -64,6 +65,13 @@ public class IPLLeagueBattingAnalyser {
 		loadMostRunsCSV(csvFilePath);
 		CSVMostRuns maxRuns = csvRuns.stream().max(Comparator.comparing(CSVMostRuns::getRuns)).get();
 		return maxRuns.getName() + "," + maxRuns.getRuns() + "," + maxRuns.getAverage();
+	}
+
+	public List<CSVMostRuns> getMax100s(String csvFilePath) {
+		loadMostRunsCSV(csvFilePath);
+		List<CSVMostRuns> maximum100sList = csvRuns.stream()
+				.sorted(Comparator.comparingInt(CSVMostRuns::get100s).reversed()).collect(Collectors.toList());
+		return maximum100sList;
 	}
 
 }

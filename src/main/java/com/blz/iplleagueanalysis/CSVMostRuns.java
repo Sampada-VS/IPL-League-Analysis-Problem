@@ -34,7 +34,7 @@ public class CSVMostRuns {
 	private double strikeRate;
 
 	@CsvBindByName(column = "100")
-	private int totalcenturies;
+	private int totalCenturies;
 
 	@CsvBindByName(column = "50")
 	private int totalHalfCenturies;
@@ -67,5 +67,9 @@ public class CSVMostRuns {
 
 	public int getRuns() {
 		return runs;
+	}
+
+	public int get100s() {
+		return totalCenturies;
 	}
 }

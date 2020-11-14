@@ -2,6 +2,8 @@ package com.blz.iplleagueanalysis;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -67,6 +69,13 @@ public class IPLLeagueBattingAnalyserTest {
 	public void givenIPLMostRunsCSVFile_WhenMaxRuns_ShouldReturnCricketerWithBestAverage() {
 		String maxRunsScorer = iPLLeagueBattingAnalyser.getCricketerWhoHitMaxRuns(IPL_MOST_RUNS_CSV_FILE_PATH);
 		assertEquals("David Warner ,692,69.2", maxRunsScorer);
+	}
+	
+	@Test
+	public void givenIPLMostRunsCSVFile_WhenMost100s_ShouldReturnCricketerWithHighestBattingAverage() {
+		List<CSVMostRuns> max100sList = iPLLeagueBattingAnalyser.getMax100s(IPL_MOST_RUNS_CSV_FILE_PATH);
+		assertEquals("David Warner ,1,69.2", max100sList.get(0).getName() + "," + max100sList.get(0).get100s() + ","
+				+ max100sList.get(0).getAverage());
 	}
 
 }
