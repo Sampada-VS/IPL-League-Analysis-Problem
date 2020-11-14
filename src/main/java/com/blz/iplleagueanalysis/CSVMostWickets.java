@@ -41,4 +41,8 @@ public class CSVMostWickets {
 
 	@CsvBindByName(column = "5w")
 	private int fiveW;
+	
+	public double getBowlingAverage() {
+		return average;
+	}
 }
