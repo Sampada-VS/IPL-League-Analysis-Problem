@@ -8,7 +8,6 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
 public class IPLLeagueAnalyserTest {
 
 	static IPLLeagueAnalyser iPLLeagueAnalyser;
@@ -30,14 +29,22 @@ public class IPLLeagueAnalyserTest {
 		int numOfRecords = iPLLeagueAnalyser.loadMostRunsCSV(IPL_MOST_RUNS_CSV_FILE_PATH);
 		assertEquals(100, numOfRecords);
 	}
+
 	@Test
 	public void givenIPLMostWicketsCSVFile_ShouldReturnCorrectRecords() {
 		int numOfRecords = iPLLeagueAnalyser.loadMostWicketsCSV(IPL_MOST_WICKETS_CSV_FILE_PATH);
 		assertEquals(100, numOfRecords);
 	}
+
 	@Test
 	public void givenIPLMostRunsCSVFile_WhenTopBattingAverage_ShouldReturnCorrectRecord() {
-		double topBattingAverage=iPLLeagueAnalyser.getTopBattingAverage(IPL_MOST_RUNS_CSV_FILE_PATH);
-		assertEquals(83.2, topBattingAverage,0.0);
+		double topBattingAverage = iPLLeagueAnalyser.getTopBattingAverage(IPL_MOST_RUNS_CSV_FILE_PATH);
+		assertEquals(83.2, topBattingAverage, 0.0);
+	}
+
+	@Test
+	public void givenIPLMostRunsCSVFile_WhenTopStrikingRate_ShouldReturnCorrectRecord() {
+		String topStrikingRate = iPLLeagueAnalyser.getTopStrikingRate(IPL_MOST_RUNS_CSV_FILE_PATH);
+		assertEquals("333.33,Ishant Sharma", topStrikingRate);
 	}
 }
