@@ -72,4 +72,12 @@ public class IPLLeagueBowlingAnalyserTest {
 		List<CSVMostWickets> maxWicketsList = iPLLeagueBowlingAnalyser.getmaxWickets(IPL_MOST_WICKETS_CSV_FILE_PATH);
 		assertEquals("Imran Tahir,26", maxWicketsList.get(0).getName() + "," + maxWicketsList.get(0).getWickets());
 	}
+
+	@Test
+	public void givenIPLMostWicketsCSVFile_WhenTopStrikingRate_ShouldReturnCricketerWithBowlingAverage() {
+		List<CSVMostWickets> topStrikingRateList = iPLLeagueBowlingAnalyser
+				.getTopStrikingRate(IPL_MOST_WICKETS_CSV_FILE_PATH);
+		assertEquals("Krishnappa Gowtham,120.0,166.0", topStrikingRateList.get(0).getName() + ","
+				+ topStrikingRateList.get(0).getStrikeRate() + "," + topStrikingRateList.get(0).getBowlingAverage());
+	}
 }
