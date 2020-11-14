@@ -64,4 +64,8 @@ public class CSVMostRuns {
 	public int get4s() {
 		return total4s;
 	}
+
+	public int getRuns() {
+		return runs;
+	}
 }

@@ -3,6 +3,7 @@ package com.blz.iplleagueanalysis;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -71,6 +72,12 @@ public class IPLLeagueAnalyserTest {
 	public void givenIPLMostRunsCSVFile_WhenGreatAverage_ShouldReturnCricketerWithStrikeRate() {
 		String bestAverageCricketer = iPLLeagueAnalyser.getCricketerWhoHasBestAverage(IPL_MOST_RUNS_CSV_FILE_PATH);
 		assertEquals("MS Dhoni,83.2,134.62", bestAverageCricketer);
+	}
+
+	@Test
+	public void givenIPLMostRunsCSVFile_WhenMaxRuns_ShouldReturnCricketerWithBestAverage() {
+		String maxRunsScorer = iPLLeagueAnalyser.getCricketerWhoHitMaxRuns(IPL_MOST_RUNS_CSV_FILE_PATH);
+		assertEquals("David Warner ,692,69.2", maxRunsScorer);
 	}
 
 }
