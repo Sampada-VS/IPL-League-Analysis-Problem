@@ -56,4 +56,12 @@ public class CSVMostRuns {
 	public String getName() {
 		return playerName;
 	}
+
+	public int get6s() {
+		return total6s;
+	}
+
+	public int get4s() {
+		return total4s;
+	}
 }

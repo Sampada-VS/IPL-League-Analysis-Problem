@@ -48,4 +48,16 @@ public class IPLLeagueAnalyser {
 		return topStrikeRate.getStrikeRate() + "," + topStrikeRate.getName();
 	}
 
+	public String getCricketerWhoHitmax6s(String csvFilePath) {
+		loadMostRunsCSV(csvFilePath);
+		CSVMostRuns max6s = csvRuns.stream().max(Comparator.comparing(CSVMostRuns::get6s)).get();
+		return max6s.get6s() + "," + max6s.getName();
+	}
+
+	public String getCricketerWhoHitmax4s(String csvFilePath) {
+		loadMostRunsCSV(csvFilePath);
+		CSVMostRuns max4s = csvRuns.stream().max(Comparator.comparing(CSVMostRuns::get4s)).get();
+		return max4s.get4s() + "," + max4s.getName();
+	}
+
 }

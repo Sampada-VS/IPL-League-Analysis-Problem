@@ -47,4 +47,16 @@ public class IPLLeagueAnalyserTest {
 		String topStrikingRate = iPLLeagueAnalyser.getTopStrikingRate(IPL_MOST_RUNS_CSV_FILE_PATH);
 		assertEquals("333.33,Ishant Sharma", topStrikingRate);
 	}
+
+	@Test
+	public void givenIPLMostRunsCSVFile_WhenMax6s_ShouldReturnCricketer() {
+		String max6sHit = iPLLeagueAnalyser.getCricketerWhoHitmax6s(IPL_MOST_RUNS_CSV_FILE_PATH);
+		assertEquals("52,Andre Russell", max6sHit);
+	}
+
+	@Test
+	public void givenIPLMostRunsCSVFile_WhenMax4s_ShouldReturnCricketer() {
+		String max4sHit = iPLLeagueAnalyser.getCricketerWhoHitmax4s(IPL_MOST_RUNS_CSV_FILE_PATH);
+		assertEquals("64,Shikhar Dhawan", max4sHit);
+	}
 }
