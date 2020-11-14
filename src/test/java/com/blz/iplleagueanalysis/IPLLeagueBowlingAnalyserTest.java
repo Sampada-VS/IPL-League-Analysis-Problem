@@ -57,4 +57,13 @@ public class IPLLeagueBowlingAnalyserTest {
 				topStrikingRateList.get(0).getName() + "," + topStrikingRateList.get(0).getStrikeRate() + ","
 						+ topStrikingRateList.get(0).get5w() + "," + topStrikingRateList.get(0).get4w());
 	}
+
+	@Test
+	public void givenIPLMostWicketsCSVFile_WhenTopBowlingAverage_ShouldReturnCricketerWithstrikeRate() {
+		List<CSVMostWickets> topBowlingAverageList = iPLLeagueBowlingAnalyser
+				.getTopBowlingAverage(IPL_MOST_WICKETS_CSV_FILE_PATH);
+		assertEquals("Krishnappa Gowtham,166.0,120.0",
+				topBowlingAverageList.get(0).getName() + "," + topBowlingAverageList.get(0).getBowlingAverage() + ","
+						+ topBowlingAverageList.get(0).getStrikeRate());
+	}
 }
