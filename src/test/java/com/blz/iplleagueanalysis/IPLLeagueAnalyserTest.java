@@ -62,8 +62,15 @@ public class IPLLeagueAnalyserTest {
 
 	@Test
 	public void givenIPLMostRunsCSVFile_WhenBestStrikingRate_ShouldReturnCricketerWithHis6sAnd4s() {
-		String bestStrikeRateCricketer = iPLLeagueAnalyser.getCricketerWhoHasBestStrikingRate(IPL_MOST_RUNS_CSV_FILE_PATH);
+		String bestStrikeRateCricketer = iPLLeagueAnalyser
+				.getCricketerWhoHasBestStrikingRate(IPL_MOST_RUNS_CSV_FILE_PATH);
 		assertEquals("333.33,1,1", bestStrikeRateCricketer);
+	}
+
+	@Test
+	public void givenIPLMostRunsCSVFile_WhenGreatAverage_ShouldReturnCricketerWithStrikeRate() {
+		String bestAverageCricketer = iPLLeagueAnalyser.getCricketerWhoHasBestAverage(IPL_MOST_RUNS_CSV_FILE_PATH);
+		assertEquals("MS Dhoni,83.2,134.62", bestAverageCricketer);
 	}
 
 }
