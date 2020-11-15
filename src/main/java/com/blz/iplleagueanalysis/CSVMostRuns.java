@@ -72,4 +72,8 @@ public class CSVMostRuns {
 	public int get100s() {
 		return totalCenturies;
 	}
+
+	public int get50s() {
+		return totalHalfCenturies;
+	}
 }

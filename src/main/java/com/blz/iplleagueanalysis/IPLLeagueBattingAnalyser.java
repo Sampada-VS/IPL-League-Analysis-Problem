@@ -13,7 +13,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 public class IPLLeagueBattingAnalyser {
 	static List<CSVMostRuns> csvRuns;
-	
+
 	public int loadMostRunsCSV(String csvFilePath) {
 		try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));) {
 			CsvToBean<CSVMostRuns> csvToBean = new CsvToBeanBuilder(reader).withType(CSVMostRuns.class)
@@ -25,10 +25,11 @@ public class IPLLeagueBattingAnalyser {
 		return csvRuns.size();
 	}
 
-	public double getTopBattingAverage(String csvFilePath) {
+	public List<CSVMostRuns> getTopBattingAverage(String csvFilePath) {
 		loadMostRunsCSV(csvFilePath);
-		CSVMostRuns topAverage = csvRuns.stream().max(Comparator.comparing(CSVMostRuns::getAverage)).get();
-		return topAverage.getAverage();
+		List<CSVMostRuns> topAverageList = csvRuns.stream()
+				.sorted(Comparator.comparingDouble(CSVMostRuns::getAverage).reversed()).collect(Collectors.toList());
+		return topAverageList;
 	}
 
 	public String getTopStrikingRate(String csvFilePath) {
